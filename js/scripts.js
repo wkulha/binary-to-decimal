@@ -1,5 +1,5 @@
-const errorMessage = 'Please enter a binary number (one that uses only 0 and 1)'
-
+const binaryErrorMessage = 'Please enter a binary number (one that uses only 0 and 1)'
+const ternaryErrorMessage = 'Please enter a ternary number (one that uses only 0, 1, and 2)'
 //Function to Check if a number is binary.
 let checkBinary = function(number) {
   let notBinary = /[^01]/;
