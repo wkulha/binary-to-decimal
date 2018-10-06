@@ -13,7 +13,7 @@ let checkBinary = function(number) {
 
 //Function to check if a number is ternary.
 let checkTernary = function(number) {
-  let notBinary = /[^012]/;
+  let notTernary = /[^012]/;
   if (notTernary.test(number) === true) {
     return true
   }
@@ -54,15 +54,26 @@ let convertTernary = function(ternaryNumber) {
 
 //User logic
 $(document).ready(function() {
-  $('#binary_form').submit(function(event) {
+  $('#number_form').submit(function(event) {
     event.preventDefault();
-    let userBinary = parseInt($('#user_input').val());
-    if (checkBinary(userBinary) === true) {
-      $('.error_message').text(errorMessage);
-    } else {
-      $('.error_message').empty();
-      let converted = convertBinary(userBinary);
-      $('.converter_output').text('The binary number ' + userBinary + ' is equal to ' + converted + ' as a decimal number.' )
+    let userInput = parseInt($('#user_input').val());
+    let typeOfNumber = $("input:radio[name=typeradio]:checked").val();
+    if (typeOfNumber === 'binary') {
+      if (checkBinary(userInput) === true) {
+        $('.error_message').text(binaryErrorMessage);
+      } else {
+        $('.error_message').empty();
+        let converted = convertBinary(userInput);
+        $('.converter_output').text('The binary number ' + userInput + ' is equal to ' + converted + ' as a decimal number.' )
+      }
+    } else if (typeOfNumber === 'ternary') {
+      if(checkTernary(userInput) === true) {
+        $('.error_message').text(ternaryErrorMessage);
+      } else {
+        $('.error_message').empty();
+        let converted = convertTernary(userInput);
+        $('.converter_output').text('The ternary number ' + userInput + ' is equal to ' + converted + ' as a decimal number.' )
+      }
     }
   });
 });
