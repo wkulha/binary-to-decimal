@@ -12,8 +12,16 @@ let checkBinary = function(number) {
 
 let convertBinary = function(binaryNumber) {
   let binaryArray = Array.from(binaryNumber.toString()).map(Number);
+  let arrayToAdd = []
   let lengthPower = (binaryArray.length - 1)
-  console.log(lengthPower);
+  for (let currentPower = lengthPower, currentIndex = 0; currentPower >= 0; currentPower -= 1, currentIndex +=1) {
+    let currentNumber = binaryArray[currentIndex] * Math.pow(2, currentPower);
+    (arrayToAdd).push(currentNumber);
+  }
+  let converted = arrayToAdd.reduce(function(sum, number) {
+    return sum + number;
+  }, 0)
+  console.log(converted);
 }
 
 //User logic
