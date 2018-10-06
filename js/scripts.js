@@ -12,7 +12,8 @@ let checkBinary = function(number) {
 
 let convertBinary = function(binaryNumber) {
   let binaryArray = Array.from(binaryNumber.toString()).map(Number);
-  console.log(binaryArray);
+  let lengthPower = (binaryArray.length - 1)
+  console.log(lengthPower);
 }
 
 //User logic
