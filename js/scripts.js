@@ -10,6 +10,11 @@ let checkBinary = function(number) {
   }
 }
 
+let convertBinary = function(binaryNumber) {
+  let binaryArray = Array.from(binaryNumber.toString()).map(Number);
+  console.log(binaryArray);
+}
+
 //User logic
 $(document).ready(function() {
   $('#binary_form').submit(function(event) {
@@ -18,6 +23,8 @@ $(document).ready(function() {
     if (checkBinary(userBinary) === true) {
       $('.error_message').text(errorMessage);
     } else {
+      $('.error_message').empty();
+      convertBinary(userBinary);
       console.log(userBinary);
     }
   });
