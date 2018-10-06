@@ -21,7 +21,7 @@ let convertBinary = function(binaryNumber) {
   let converted = arrayToAdd.reduce(function(sum, number) {
     return sum + number;
   }, 0)
-  console.log(converted);
+  return converted;
 }
 
 //User logic
@@ -33,8 +33,8 @@ $(document).ready(function() {
       $('.error_message').text(errorMessage);
     } else {
       $('.error_message').empty();
-      convertBinary(userBinary);
-      console.log(userBinary);
+      let converted = convertBinary(userBinary);
+      $('.converter_output').text('The binary number ' + userBinary + ' is equal to ' + converted + ' as a decimal number.' )
     }
   });
 });
